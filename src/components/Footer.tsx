@@ -12,7 +12,7 @@ const Footer = () => {
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Cell Nutrition 8.0
+                Success Together
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
@@ -27,7 +27,7 @@ const Footer = () => {
                 Главная
               </Link>
               <Link to="/articles" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
-                SEO Статьи
+                Статьи
               </Link>
               <Link to="/about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
                 О нас
@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2025 Cell Nutrition 8.0. Все права защищены.</p>
+          <p>© 2025 Success Together. Все права защищены.</p>
         </div>
       </div>
     </footer>
