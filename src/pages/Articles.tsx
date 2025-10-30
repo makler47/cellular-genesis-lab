@@ -58,7 +58,7 @@ const Articles = () => {
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                SEO Статьи
+                Статьи
               </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
