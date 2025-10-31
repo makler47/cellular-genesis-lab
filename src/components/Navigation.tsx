@@ -1,16 +1,24 @@
 import { Link, useLocation } from "react-router-dom";
-import { Sparkles, Moon, Sun } from "lucide-react";
+import { Sparkles, Moon, Sun, Globe } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
   const location = useLocation();
   const { theme, setTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
   
   const links = [
-    { path: "/", label: "Главная" },
-    { path: "/articles", label: "Статьи" },
-    { path: "/about", label: "О нас" },
+    { path: "/", label: t('home') },
+    { path: "/articles", label: t('articles') },
+    { path: "/about", label: t('about') },
   ];
 
   return (
@@ -22,7 +30,7 @@ const Navigation = () => {
               <Sparkles className="w-6 h-6 text-white animate-pulse-slow" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Success Together
+              {t('brandName')}
             </span>
           </Link>
           
@@ -43,6 +51,22 @@ const Navigation = () => {
                 )}
               </Link>
             ))}
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="w-9 h-9">
+                  <Globe className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setLanguage('ru')}>
+                  🇷🇺 Русский
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('en')}>
+                  🇬🇧 English
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             
             <Button
               variant="ghost"

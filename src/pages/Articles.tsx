@@ -2,50 +2,52 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Calendar, Clock } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Articles = () => {
+  const { t } = useLanguage();
   const articles = [
     {
-      title: "Как Клеточное Питание Меняет Подход к Здоровью",
-      excerpt: "Открытие 8-го поколения питания открывает новую эру в понимании работы нашего организма на молекулярном уровне. Узнайте, как это может изменить вашу жизнь.",
+      titleKey: 'article1Title',
+      contentKey: 'article1Content',
       date: "15 января 2025",
-      readTime: "5 мин",
-      category: "Наука",
+      readTime: "12",
+      categoryKey: 'science',
     },
     {
-      title: "Энергия Митохондрий: Источник Вашей Жизненной Силы",
-      excerpt: "Митохондрии — это электростанции наших клеток. Узнайте, как правильное питание на клеточном уровне может увеличить их эффективность в несколько раз.",
+      titleKey: 'article2Title',
+      contentKey: 'article2Content',
       date: "12 января 2025",
-      readTime: "7 мин",
-      category: "Здоровье",
+      readTime: "10",
+      categoryKey: 'health',
     },
     {
-      title: "От БАДов к Питанию 8-го Поколения: Эволюция Нутрициологии",
-      excerpt: "История развития подходов к питанию: от простых витаминов до революционных клеточных технологий. Почему 8-е поколение — это прорыв?",
+      titleKey: 'article3Title',
+      contentKey: 'article3Content',
       date: "10 января 2025",
-      readTime: "6 мин",
-      category: "Образование",
+      readTime: "11",
+      categoryKey: 'education',
     },
     {
-      title: "Клинические Исследования: Доказанная Эффективность",
-      excerpt: "Результаты независимых клинических исследований подтверждают: питание на клеточном уровне действительно работает. Цифры и факты.",
+      titleKey: 'article4Title',
+      contentKey: 'article4Content',
       date: "8 января 2025",
-      readTime: "8 мин",
-      category: "Наука",
+      readTime: "13",
+      categoryKey: 'science',
     },
     {
-      title: "Восстановление После Стресса на Клеточном Уровне",
-      excerpt: "Как современный стресс влияет на наши клетки и почему обычное питание не справляется. Новый подход к восстановлению организма.",
+      titleKey: 'article5Title',
+      contentKey: 'article5Content',
       date: "5 января 2025",
-      readTime: "6 мин",
-      category: "Здоровье",
+      readTime: "10",
+      categoryKey: 'health',
     },
     {
-      title: "Биохакинг и Клеточное Питание: Синергия Технологий",
-      excerpt: "Соединение древней мудрости о питании с современными биохакинг-практиками. Как достичь максимальной эффективности организма.",
+      titleKey: 'article6Title',
+      contentKey: 'article6Content',
       date: "3 января 2025",
-      readTime: "7 мин",
-      category: "Биохакинг",
+      readTime: "11",
+      categoryKey: 'biohacking',
     },
   ];
 
@@ -58,11 +60,11 @@ const Articles = () => {
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Статьи
+                {t('articlesTitle')}
               </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Глубокое погружение в мир клеточного питания 8-го поколения
+              {t('articlesSubtitle')}
             </p>
           </div>
 
@@ -75,35 +77,29 @@ const Articles = () => {
               >
                 <CardHeader>
                   <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3">
-                    {article.category}
+                    {t(article.categoryKey)}
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-2 leading-tight">
-                    {article.title}
+                    {t(article.titleKey)}
                   </h3>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">
-                    {article.excerpt}
+                  <p className="text-muted-foreground mb-4">
+                    {t(article.contentKey)}
                   </p>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mt-6">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
                       <span>{article.date}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
-                      <span>{article.readTime}</span>
+                      <span>{article.readTime} {t('readTime')}</span>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground italic">
-              💡 Статьи автоматически обновляются каждые 3 дня с помощью AI-модуля
-            </p>
           </div>
         </div>
       </section>
