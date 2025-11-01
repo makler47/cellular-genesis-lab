@@ -54,16 +54,60 @@ const Navigation = () => {
             
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="w-9 h-9">
-                  <Globe className="h-5 w-5" />
+                <Button variant="ghost" size="sm" className="gap-2 h-9 px-3">
+                  <Globe className="h-4 w-4" />
+                  <span className="text-sm font-medium">
+                    {language === 'ru' && '🇷🇺'}
+                    {language === 'en' && '🇬🇧'}
+                    {language === 'es' && '🇪🇸'}
+                    {language === 'fr' && '🇫🇷'}
+                    {language === 'de' && '🇩🇪'}
+                    {language === 'zh' && '🇨🇳'}
+                  </span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage('ru')}>
-                  🇷🇺 Русский
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem 
+                  onClick={() => setLanguage('ru')}
+                  className={language === 'ru' ? 'bg-accent' : ''}
+                >
+                  <span className="mr-2">🇷🇺</span>
+                  <span>Русский</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('en')}>
-                  🇬🇧 English
+                <DropdownMenuItem 
+                  onClick={() => setLanguage('en')}
+                  className={language === 'en' ? 'bg-accent' : ''}
+                >
+                  <span className="mr-2">🇬🇧</span>
+                  <span>English</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => setLanguage('es')}
+                  className={language === 'es' ? 'bg-accent' : ''}
+                >
+                  <span className="mr-2">🇪🇸</span>
+                  <span>Español</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => setLanguage('fr')}
+                  className={language === 'fr' ? 'bg-accent' : ''}
+                >
+                  <span className="mr-2">🇫🇷</span>
+                  <span>Français</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => setLanguage('de')}
+                  className={language === 'de' ? 'bg-accent' : ''}
+                >
+                  <span className="mr-2">🇩🇪</span>
+                  <span>Deutsch</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => setLanguage('zh')}
+                  className={language === 'zh' ? 'bg-accent' : ''}
+                >
+                  <span className="mr-2">🇨🇳</span>
+                  <span>中文</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

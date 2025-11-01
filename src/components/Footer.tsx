@@ -40,8 +40,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4 text-foreground">{t('contacts')}</h3>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p>{t('email')}: info@cellnutrition8.com</p>
-              <p>{t('phone')}: +7 (800) 123-45-67</p>
+              <p>{t('email')}: mr.mclean.1975@gmail.com</p>
             </div>
           </div>
         </div>
